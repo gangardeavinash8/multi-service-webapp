@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Debug step
+      # Debug step to verify files
       - name: Debug – list files
         run: |
           echo "Current directory: $(pwd)"
