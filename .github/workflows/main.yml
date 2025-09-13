@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]   # changed from master to main
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 👀 Debug step to verify Dockerfiles exist
+      # Debug step
       - name: Debug – list files
         run: |
           echo "Current directory: $(pwd)"
@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./service1
-          file: ./service1/Dockerfile
+          file: Dockerfile   # relative to context dir
           push: true
           tags: |
             poco349/service1:latest
@@ -44,7 +44,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./service2
-          file: ./service2/Dockerfile
+          file: Dockerfile   # relative to context dir
           push: true
           tags: |
             poco349/service2:latest
