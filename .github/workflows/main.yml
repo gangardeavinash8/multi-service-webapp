@@ -17,18 +17,24 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
+      # ---- Service1 ----
       - name: Build & Push Service1
         uses: docker/build-push-action@v4
         with:
           context: ./service1
-          file: ./Dockerfile
+          file: ./service1/Dockerfile
           push: true
-          tags: poco349/service1:latest
+          tags: |
+            poco349/service1:latest
+            poco349/service1:${{ github.sha }}
 
+      # ---- Service2 ----
       - name: Build & Push Service2
         uses: docker/build-push-action@v4
         with:
           context: ./service2
-          file: ./Dockerfile
+          file: ./service2/Dockerfile
           push: true
-          tags: poco349/service2:latest
+          tags: |
+            poco349/service2:latest
+            poco349/service2:${{ github.sha }}
