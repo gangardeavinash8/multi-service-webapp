@@ -20,13 +20,13 @@ jobs:
       - name: Build & Push Service1
         uses: docker/build-push-action@v4
         with:
-          context: ./service1
+          context: ./service1/Dockerfile
           push: true
           tags: poco349/service1:latest
 
       - name: Build & Push Service2
         uses: docker/build-push-action@v4
         with:
-          context: ./service2
+          context: ./service2/Dockerfile
           push: true
           tags: poco349/service2:latest
