@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./service1
-          file: ./service1/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: poco349/service1:latest
 
@@ -29,6 +29,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./service2
-          file: ./service2/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: poco349/service2:latest
